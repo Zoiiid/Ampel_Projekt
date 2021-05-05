@@ -4,7 +4,7 @@
 
 
 void setup() {
-  int Ampel_Kreuz_NS_rot =
+  int Ampel_Kreuz_NS_rot = 
   int Ampel_Kreuz_NS_gelb =
   int Ampel_Kreuz_NS_grün = 
   int Ampel_Kreuz_OW_rot =
