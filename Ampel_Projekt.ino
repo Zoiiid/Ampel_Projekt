@@ -33,6 +33,19 @@ void setup() {
 }
 
 void loop() {
-  
+  if (digitalRead(Knopf) == HIGH) {
+    digitalWrite()
+
+
+
+  }
+
+  else {
+    digitalWrite(Ampel_Kreuz_NS_rot, HIGH);
+    digitalWrite(Ampel_Kreuz_OW_rot, HIGH);
+    digitalWrite(Ampel_Fussgaenger_OW_rot, HIGH);
+    digitalWrite(Ampel_Fussgaenger_NS_rot, HIGH);
+
+  }
 
 }
