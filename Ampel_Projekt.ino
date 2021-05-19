@@ -65,8 +65,9 @@ void loop() {
     digitalWrite(Ampel_Fussgaenger_OW_gruen, HIGH);
     digitalWrite(Ampel_Fussgaenger_NS_rot, LOW);
     digitalWrite(Ampel_Fussgaenger_NS_gruen, HIGH);
+    delay(10000);
   }
-  
+
   else {
     digitalWrite(Ampel_Kreuz_NS_rot, HIGH);
     digitalWrite(Ampel_Kreuz_OW_rot, HIGH);
