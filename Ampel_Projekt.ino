@@ -1,41 +1,41 @@
 /* Ampel Projekt 
  * Copyright Code: Marvin Kreienbühl, Fabrice Maurer, Marlo Cadonau
  */
-
-
+  int Knopf = 1;
+  int Ampel_Kreuz_NS_rot = 2;
+  int Ampel_Kreuz_NS_gelb = 3;
+  int Ampel_Kreuz_NS_gruen = 4;
+  int Ampel_Kreuz_OW_rot = 5;
+  int Ampel_Kreuz_OW_gelb = 6;
+  int Ampel_Kreuz_OW_gruen = 7;
+  int Ampel_Fussgaenger_NS_rot = 8;
+  int Ampel_Fussgaenger_NS_gelb = 9;
+  int Ampel_Fussgaenger_NS_gruen = 10;
+  int Ampel_Fussgaenger_OW_rot = 11;
+  int Ampel_Fussgaenger_OW_gelb = 12;
+  int Ampel_Fussgaenger_OW_gruen = 13;
+  int Knopfvalue = 0;
+ //Initialisiert alle Variablen, welche wir für dieses Projekt brauchen. OW = Ost-West, NS= Nord-Süd
 void setup() {
-  int Knopf = null;
-  int Ampel_Kreuz_NS_rot = null;
-  int Ampel_Kreuz_NS_gelb = null;
-  int Ampel_Kreuz_NS_gruen = null;
-  int Ampel_Kreuz_OW_rot = null;
-  int Ampel_Kreuz_OW_gelb = null;
-  int Ampel_Kreuz_OW_gruen = null;
-  int Ampel_Fussgaenger_NS_rot = null;
-  int Ampel_Fussgaenger_NS_gelb = null;
-  int Ampel_Fussgaenger_NS_gruen = null;
-  int Ampel_Fussgaenger_OW_rot = null;
-  int Ampel_Fussgaenger_OW_gelb = null;
-  int Ampel_Fussgaenger_OW_gruen = null;
-  //Initialisiert alle Variablen, welche wir für dieses Projekt brauchen. OW = Ost-West, NS= Nord-Süd
-  pinmode(Knopf, INPUT);
-  pinmode(Ampel_Kreuz_NS_rot, OUTPUT);
-  pinmode(Ampel_Kreuz_NS_gelb, OUTPUT);
-  pinmode(Ampel_Kreuz_NS_gruen, OUTPUT);
-  pinmode(Ampel_Kreuz_OW_rot, OUTPUT);
-  pinmode(Ampel_Kreuz_OW_gelb, OUTPUT);
-  pinmode(Ampel_Kreuz_OW_gruen, OUTPUT);
-  pinmode(Ampel_Fussgaenger_NS_rot, OUTPUT);
-  pinmode(Ampel_Fussgaenger_NS_gelb, OUTPUT);
-  pinmode(Ampel_Fussgaenger_NS_gruen, OUTPUT);
-  pinmode(Ampel_Fussgaenger_OW_rot, OUTPUT);
-  pinmode(Ampel_Fussgaenger_OW_gelb, OUTPUT);
-  pinmode(Ampel_Fussgaenger_OW_gruen, OUTPUT);
+  pinMode(Knopf, INPUT);
+  pinMode(Ampel_Kreuz_NS_rot, OUTPUT);
+  pinMode(Ampel_Kreuz_NS_gelb, OUTPUT);
+  pinMode(Ampel_Kreuz_NS_gruen, OUTPUT);
+  pinMode(Ampel_Kreuz_OW_rot, OUTPUT);
+  pinMode(Ampel_Kreuz_OW_gelb, OUTPUT);
+  pinMode(Ampel_Kreuz_OW_gruen, OUTPUT);
+  pinMode(Ampel_Fussgaenger_NS_rot, OUTPUT);
+  pinMode(Ampel_Fussgaenger_NS_gelb, OUTPUT);
+  pinMode(Ampel_Fussgaenger_NS_gruen, OUTPUT);
+  pinMode(Ampel_Fussgaenger_OW_rot, OUTPUT);
+  pinMode(Ampel_Fussgaenger_OW_gelb, OUTPUT);
+  pinMode(Ampel_Fussgaenger_OW_gruen, OUTPUT);
   //Setzt alle LEDs auf OUTPUT und den Knopf auf INPUT
 }
 
 void loop() {
-  if (digitalRead(Knopf) == HIGH) {
+  Knopfvalue = digitalRead(Knopf);
+  if (Knopfvalue == HIGH) {
     digitalWrite(Ampel_Kreuz_NS_rot, HIGH);
     digitalWrite(Ampel_Kreuz_OW_rot, HIGH);
     digitalWrite(Ampel_Fussgaenger_OW_rot, HIGH);
