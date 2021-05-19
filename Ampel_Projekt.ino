@@ -50,6 +50,12 @@ void loop() {
     digitalWrite(Ampel_Fussgaenger_OW_rot, LOW);
     digitalWrite(Ampel_Fussgaenger_OW_gruen, HIGH);
     delay(10000);
+    //Erster Cycle
+    digitalWrite(Ampel_Kreuz_NS_gruen, LOW);
+    digitalWrite(Ampel_Fussgaenger_OW_gruen, LOW);
+    digitalWrite(Ampel_Kreuz_NS_rot, HIGH);
+    digitalWrite(Ampel_Fussgaenger_OW_rot, HIGH);
+    //Alle Aus
 
 
 
