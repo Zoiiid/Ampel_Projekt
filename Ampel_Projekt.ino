@@ -56,12 +56,17 @@ void loop() {
     digitalWrite(Ampel_Kreuz_NS_rot, HIGH);
     digitalWrite(Ampel_Fussgaenger_OW_rot, HIGH);
     //Alle Aus
-
-
-
-
+    delay(1500);
+    digitalWrite(Ampel_Kreuz_OW_gelb, HIGH);
+    delay(1000);
+    digitalWrite(Ampel_Fussgaenger_OW_rot, LOW);
+    delay(500);
+    digitalWrite(Ampel_Kreuz_OW_gelb, LOW);
+    digitalWrite(Ampel_Fussgaenger_OW_gruen, HIGH);
+    digitalWrite(Ampel_Fussgaenger_NS_rot, LOW);
+    digitalWrite(Ampel_Fussgaenger_NS_gruen, HIGH);
   }
-
+  
   else {
     digitalWrite(Ampel_Kreuz_NS_rot, HIGH);
     digitalWrite(Ampel_Kreuz_OW_rot, HIGH);
