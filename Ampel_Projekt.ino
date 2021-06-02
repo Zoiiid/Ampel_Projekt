@@ -12,6 +12,7 @@
   int Ampel_Fussgaenger_NS_gruen = 8;
   int Ampel_Fussgaenger_OW_rot = 11;
   int Ampel_Fussgaenger_OW_gruen = 10;
+  int Piezo = 12;
   int Knopfvalue = 0;
  //Initialisiert alle Variablen, welche wir für dieses Projekt brauchen. OW = Ost-West, NS= Nord-Süd
 void setup() {
@@ -27,6 +28,7 @@ void setup() {
   pinMode(Ampel_Fussgaenger_NS_gruen, OUTPUT);
   pinMode(Ampel_Fussgaenger_OW_rot, OUTPUT);
   pinMode(Ampel_Fussgaenger_OW_gruen, OUTPUT);
+  pinMode(Piezo, OUTPUT);
   //Setzt alle LEDs auf OUTPUT und den Knopf auf INPUT
 }
 
@@ -47,7 +49,26 @@ void loop() {
     digitalWrite(Ampel_Kreuz_NS_gruen, HIGH);
     digitalWrite(Ampel_Fussgaenger_OW_rot, LOW);
     digitalWrite(Ampel_Fussgaenger_OW_gruen, HIGH);
-    delay(10000);
+    digitalWrite(Piezo, HIGH);
+    delay(1000);
+    digitalWrite(Piezo, LOW);
+    delay(1000);
+    digitalWrite(Piezo, HIGH);
+    delay(1000);
+    digitalWrite(Piezo, LOW);
+    delay(1000);
+    digitalWrite(Piezo, HIGH);
+    delay(1000);
+    digitalWrite(Piezo, LOW);
+    delay(1000);
+    digitalWrite(Piezo, HIGH);
+    delay(1000);
+    digitalWrite(Piezo, LOW);
+    delay(1000);
+    digitalWrite(Piezo, HIGH);
+    delay(1000);
+    digitalWrite(Piezo, LOW);
+    delay(1000);
     //Erster Cycle
     digitalWrite(Ampel_Kreuz_NS_gruen, LOW);
     digitalWrite(Ampel_Fussgaenger_OW_gruen, LOW);
@@ -63,7 +84,26 @@ void loop() {
     digitalWrite(Ampel_Kreuz_OW_gruen, HIGH);
     digitalWrite(Ampel_Fussgaenger_NS_rot, LOW);
     digitalWrite(Ampel_Fussgaenger_NS_gruen, HIGH);
-    delay(10000);
+        digitalWrite(Piezo, HIGH);
+    delay(1000);
+    digitalWrite(Piezo, LOW);
+    delay(1000);
+    digitalWrite(Piezo, HIGH);
+    delay(1000);
+    digitalWrite(Piezo, LOW);
+    delay(1000);
+    digitalWrite(Piezo, HIGH);
+    delay(1000);
+    digitalWrite(Piezo, LOW);
+    delay(1000);
+    digitalWrite(Piezo, HIGH);
+    delay(1000);
+    digitalWrite(Piezo, LOW);
+    delay(1000);
+    digitalWrite(Piezo, HIGH);
+    delay(1000);
+    digitalWrite(Piezo, LOW);
+    delay(1000);
     digitalWrite(Ampel_Fussgaenger_NS_gruen, LOW);
     digitalWrite(Ampel_Kreuz_OW_gruen, LOW);
   }
@@ -73,6 +113,7 @@ void loop() {
     digitalWrite(Ampel_Kreuz_OW_rot, HIGH);
     digitalWrite(Ampel_Fussgaenger_OW_rot, HIGH);
     digitalWrite(Ampel_Fussgaenger_NS_rot, HIGH);
+    digitalWrite(12, LOW);
     //Kein Knopf gedrückt --> Alle auf rot
 
   }
