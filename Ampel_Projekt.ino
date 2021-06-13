@@ -1,7 +1,7 @@
 /* Ampel Projekt 
  * Copyright Code: Marvin Kreienbühl, Fabrice Maurer, Marlo Cadonau
  */
-  int Knopf2 = A0
+  int Knopf2 = A0;
   int Knopf = 13;
   int Ampel_Kreuz_NS_rot = 2;
   int Ampel_Kreuz_NS_gelb = 3;
