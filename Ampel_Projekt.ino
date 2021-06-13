@@ -1,6 +1,7 @@
 /* Ampel Projekt 
  * Copyright Code: Marvin Kreienbühl, Fabrice Maurer, Marlo Cadonau
  */
+  int Knopf2 = A0
   int Knopf = 13;
   int Ampel_Kreuz_NS_rot = 2;
   int Ampel_Kreuz_NS_gelb = 3;
@@ -33,20 +34,65 @@ void setup() {
 }
 
 void loop() {
-  Knopfvalue = digitalRead(Knopf);
-  Serial.println(Knopfvalue);
-  if (Knopfvalue == 0) {
+    digitalWrite(Ampel_Kreuz_NS_rot, HIGH); 
+    digitalWrite(Ampel_Kreuz_OW_rot, HIGH);
+    digitalWrite(Ampel_Fussgaenger_OW_rot, HIGH);
+    digitalWrite(Ampel_Fussgaenger_NS_rot, HIGH);
+    //Setzt alle Auf Rot
+    FussgangerNS(); //Wartet auf Input bei Fussgänger
+    FussgangerOW(); //Wartet auf Input bei Fussgänger
+    delay(1000); //Delay von 1s
+    digitalWrite(Ampel_Kreuz_NS_gelb, HIGH); 
+    FussgangerNS();
+    FussgangerOW();
+    delay(1000);
+    digitalWrite(Ampel_Kreuz_NS_rot, LOW);
+    FussgangerNS();
+    FussgangerOW();
+    delay(500);
+    digitalWrite(Ampel_Kreuz_NS_gelb, LOW);
+    digitalWrite(Ampel_Kreuz_NS_gruen, HIGH);
+    FussgangerNS();
+    FussgangerOW();
+    delay(10000); 
+    digitalWrite(Ampel_Kreuz_NS_gruen, LOW);
+     digitalWrite(Ampel_Kreuz_NS_rot, HIGH);
+    digitalWrite(Ampel_Kreuz_OW_rot, HIGH);
+    digitalWrite(Ampel_Fussgaenger_OW_rot, HIGH);
+    digitalWrite(Ampel_Fussgaenger_NS_rot, HIGH);
+    FussgangerNS();
+    FussgangerOW();
+    delay(1000);
+    digitalWrite(Ampel_Kreuz_OW_gelb, HIGH);
+    FussgangerNS();
+    FussgangerOW();
+    delay(1000);
+    digitalWrite(Ampel_Kreuz_OW_rot, LOW);
+    FussgangerNS();
+    FussgangerOW();
+    delay(500);
+    digitalWrite(Ampel_Kreuz_OW_gelb, LOW);
+    digitalWrite(Ampel_Kreuz_OW_gruen, HIGH);
+    FussgangerNS();
+    FussgangerOW();
+    delay(10000);
+    digitalWrite(Ampel_Kreuz_OW_gruen, LOW);
+    FussgangerNS();
+    FussgangerOW();
+    //Dieser Zyklus läuft die ganze Zeit. Er checkt ob es einen Input bei den Fussgänger gibt --> Falls ja, Ampeln gestoppt Fussgänger grün
+  }
+
+
+void FussgangerOW() {
+  Knopfvalue = digitalRead(Knopf); //Setzt Knopfstatus in Variable
+  Serial.println(Knopfvalue); //Printet Variable für debugging
+    if (Knopfvalue == 0) {    //Falls Knopf gedrückt, Fussgänger-Sequenz
     digitalWrite(Ampel_Kreuz_NS_rot, HIGH);
     digitalWrite(Ampel_Kreuz_OW_rot, HIGH);
     digitalWrite(Ampel_Fussgaenger_OW_rot, HIGH);
     digitalWrite(Ampel_Fussgaenger_NS_rot, HIGH);
     delay(1000);
-    digitalWrite(Ampel_Kreuz_NS_gelb, HIGH);
     delay(1000);
-    digitalWrite(Ampel_Kreuz_NS_rot, LOW);
-    delay(500);
-    digitalWrite(Ampel_Kreuz_NS_gelb, LOW);
-    digitalWrite(Ampel_Kreuz_NS_gruen, HIGH);
     digitalWrite(Ampel_Fussgaenger_OW_rot, LOW);
     digitalWrite(Ampel_Fussgaenger_OW_gruen, HIGH);
     digitalWrite(Piezo, HIGH);
@@ -69,22 +115,30 @@ void loop() {
     delay(1000);
     digitalWrite(Piezo, LOW);
     delay(1000);
-    //Erster Cycle
-    digitalWrite(Ampel_Kreuz_NS_gruen, LOW);
     digitalWrite(Ampel_Fussgaenger_OW_gruen, LOW);
-    digitalWrite(Ampel_Kreuz_NS_rot, HIGH);
     digitalWrite(Ampel_Fussgaenger_OW_rot, HIGH);
-    //Alle Aus
+    }
+else {
+
+}
+
+
+
+}
+
+void FussgangerNS() {
+  Knopfvalue = digitalRead(Knopf2); //Knopf-Status wird in Variable gesetzt.
+  Serial.println(Knopfvalue); //Printet Variable für debugging
+  if (Knopfvalue == 0) { //Falls Knopf gedrückt wird, läuft Sequenz ab
+    digitalWrite(Ampel_Kreuz_NS_rot, HIGH);
+    digitalWrite(Ampel_Kreuz_OW_rot, HIGH);
+    digitalWrite(Ampel_Fussgaenger_OW_rot, HIGH);
+    digitalWrite(Ampel_Fussgaenger_NS_rot, HIGH);
     delay(1000);
-    digitalWrite(Ampel_Kreuz_OW_gelb, HIGH);
     delay(1000);
-    digitalWrite(Ampel_Kreuz_OW_rot, LOW);
-    delay(500);
-    digitalWrite(Ampel_Kreuz_OW_gelb, LOW);
-    digitalWrite(Ampel_Kreuz_OW_gruen, HIGH);
     digitalWrite(Ampel_Fussgaenger_NS_rot, LOW);
     digitalWrite(Ampel_Fussgaenger_NS_gruen, HIGH);
-        digitalWrite(Piezo, HIGH);
+    digitalWrite(Piezo, HIGH);
     delay(1000);
     digitalWrite(Piezo, LOW);
     delay(1000);
@@ -105,17 +159,13 @@ void loop() {
     digitalWrite(Piezo, LOW);
     delay(1000);
     digitalWrite(Ampel_Fussgaenger_NS_gruen, LOW);
-    digitalWrite(Ampel_Kreuz_OW_gruen, LOW);
-  }
-
-  else {
-    digitalWrite(Ampel_Kreuz_NS_rot, HIGH);
-    digitalWrite(Ampel_Kreuz_OW_rot, HIGH);
-    digitalWrite(Ampel_Fussgaenger_OW_rot, HIGH);
     digitalWrite(Ampel_Fussgaenger_NS_rot, HIGH);
-    digitalWrite(12, LOW);
-    //Kein Knopf gedrückt --> Alle auf rot
 
   }
+
+else {
+}
+
+
 
 }
